@@ -12,8 +12,22 @@ const SignIn = () => {
                   // create user
                   signInUser(email, password)
                   .then(result =>{
-                        const user = result.user;
-                        console.log('Sig', user)
+                        console.log('Sig', result.user);
+                        const user ={
+                          email,
+                          lastLogAt : result.user?.metadata?.lastSignInTime
+                        }
+                        fetch(`http://localhost:5000/users`, {
+                          method: 'PATCH',
+                          headers:{
+                            'content-type': 'application/json'
+                          },
+                          body: JSON.stringify(user)
+                        })
+                        .then(res => res.json())
+                        .then(data => {
+                          console.log(data)
+                        })
                   })
                   .catch(error =>{
                         console.log(error.message)
