@@ -5,6 +5,7 @@ const Navbar = () => {
       const navLinks = <>
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/addCoffee'>AddCoffee</Link></li>
+      <li><Link to='/signup'>SignUp</Link></li>
       </>
 
   return (
@@ -43,7 +44,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-secondary btn-sm">Button</a>
+          <a className="btn btn-secondary btn-sm"><Link to='/signin'>Sign in</Link></a>
         </div>
       </div>
     </div>
